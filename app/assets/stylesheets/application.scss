@@ -15,20 +15,16 @@ body {
 form.button_to {
   display: inline;
 }
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 300px;
+  margin: 0 auto;
+}
 h1 {
   text-align: center;
 }
 .login {
   padding-top: 15px;
-}
-
-#sign-up, #login-section {
-  padding-top: 100px;
-}
-
-.sign-up-frm, .login-frm {
-  display: flex;
-  flex-direction: column;
-  width: 300px;
-  margin: 0 auto;
 }
