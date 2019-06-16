@@ -26,12 +26,19 @@
             <dt>Review</dt>
             <dd><%= review.description %></dd>
             <dt>Rating</dt>
-            <dd><%= review.rating %></dd>
+            <dd><%= review.rating %>/5</dd>
           <% end %>
         </dl>
+        <div class="col-sm-8">
+          <%= form_for :rating, url: product_reviews_path(@product.id) do |f| %>
+          <%= f.text_area :description %>
+          <%= f.select :rating, (1..5) %>
+          <%= f.submit "Post Rating" %>
+        <% end %>
         </div>
       </div>
     </div>
+  </div>
 
   </article>
 
