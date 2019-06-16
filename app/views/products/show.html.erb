@@ -11,7 +11,6 @@
       <div class="col-sm-4">
         <%= image_tag @product.image.url, class: 'main-img' %>
       </div>
-
       <div class="col-sm-8">
         <dl class="dl-horizontal">
           <dt>Name</dt>
@@ -25,27 +24,40 @@
         </dl>
       </div>
       <div class="col-sm-8">
-        <h3>Reviews</h3>
+        <h2 class="reviews-header">Reviews</h2>
         <dl class="dl-horizontal">
         <% @product.reviews.reverse_each do |review| %>
-          <dt>Review</dt>
-          <dd><%= review.description %></dd>
-          <dt>Rating</dt>
-          <dd><%= review.rating %>/5
-          
+          <div class="user-review">
+            <dt>Reviewer</dt>
+            <dd><%= current_user.first_name %> <%= current_user.last_name %></dd>
+            <dt>Review</dt>
+            <dd><%= review.description %></dd>
+            <dt>Rating</dt>
+            <dd><%= review.rating %>/5</dd>
+            
           <% if review.user_id == current_user.id %>
-            <%= link_to product_review_path(@product, review.id), method: :delete do %>
-            <div><i>Delete review</i></div>
-            <% end %>
+            <dt>Delete Review</dt>
+            <dd><%= link_to fa_icon('trash'),product_review_path(@product, review.id), 
+                    class: 'btn btn-sm btn-danger', 
+                    method: :delete, data: { confirm: "Are you sure?" } 
+                %>
+            </dd>
+          </div>
           <% end %>
-          </dd>
         <% end %>
           
           <br>
         <% if current_user %>
             <%= form_for :review, url: product_reviews_path(@product.id) do |f| %>
+            <h4>Write a Review</h4>
             <%= f.text_area :description %>
-            <%= f.select :rating, (1..5) %>
+            <%= f.select :rating, 
+              [['5 stars: Amazing Product', 5],
+              ['4 stars: Great Product', 4] , 
+              ['3 stars: Useful', 3], 
+              ['2 stars: Sucks', 2], 
+              ['1 star: wdf??', 1]] 
+            %>
             <%= f.submit "Post Rating" %>
           <% end %>
         <% end %>
