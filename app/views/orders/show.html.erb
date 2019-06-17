@@ -6,7 +6,7 @@
 
   <div class="order-summary jumbotron">
   <% if current_user %>
-        <h4>Thank you for your order! <%= current_user.email %></h4>
+        <h4>Thank you for your order! Your receipt can be found at <%= current_user.email %></h4>
       <% else %>
       <h4>Thank you for your order!</h4>
   <% end %>
