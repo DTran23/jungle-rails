@@ -6,7 +6,7 @@ A mini e-commerce application built with Rails 4.2 for purposes of teaching Rail
 !["Signup Page"](https://github.com/DTran23/jungle-rails/blob/master/docs/signup.png)
 !["Main Product Page"](https://github.com/DTran23/jungle-rails/blob/master/docs/main.png)
 !["Reviews"](https://github.com/DTran23/jungle-rails/blob/master/docs/review.png)
-!["Cart"](https://github.com/DTran23/jungle-rails/blob/master/docs/cart.png)
+!["Cart"](https://github.com/DTran23/jungle-rails/blob/master/docs/shopping-cart.png)
 !["Stripe"](https://github.com/DTran23/jungle-rails/blob/master/docs/stripe.png)
 !["Order Receipt"](https://github.com/DTran23/jungle-rails/blob/master/docs/order_receipt.png)
 
